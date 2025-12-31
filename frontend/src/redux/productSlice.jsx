@@ -1,24 +1,45 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "../axios/api";
 
-export const getProduct = () => async (dispatch, getState) => {
-  const { data } = await axios.get("/products");
-  dispatch(postProduct(data));
+export const getProduct = (product) => async (dispatch) => {
+  try {
+    const { data } = await axios.get(`/products?_start=${product.length}&_limit=8`);
+    dispatch(addProducts(data));
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+};
+
+export const postNewProduct = async (product) => {
+  try {
+    await axios.post("/products", product);
+    console.log(product);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 const initialState = {
-  value: null,
+  value: [],
 };
 
-export const productSlice = createSlice({
+const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    postProduct: (state, action) => {
-      state.value = action.payload;
+    addProducts: (state, action) => {
+      const newProducts = action.payload.filter(
+        (p) => !state.value.some((item) => item.id === p.id)
+      );
+      state.value = [...state.value, ...newProducts];
+    },
+
+    resetProducts: (state) => {
+      state.value = [];
+      state.hasMore = true;
     },
   },
 });
 
 export default productSlice.reducer;
-export const { postProduct } = productSlice.actions;
+export const { addProducts, resetProducts } = productSlice.actions;

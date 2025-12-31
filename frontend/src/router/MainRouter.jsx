@@ -1,13 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./../pages/Home";
-import Register from "./../pages/Register";
-import Login from "./../pages/Login";
-import Cart from "./../pages/user/Cart";
-import Create from "../pages/admin/Create";
-import Profile from "./../pages/user/Profile";
-import ProductDetail from "../pages/ProductDetail";
+import { lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { syncUser } from "../redux/userSlice";
+const Home = lazy(() => import("./../pages/Home"));
+const Register = lazy(() => import("./../pages/Register"));
+const Login = lazy(() => import("./../pages/Login"));
+const Cart = lazy(() => import("./../pages/user/Cart"));
+const Create = lazy(() => import("../pages/admin/Create"));
+const Profile = lazy(() => import("./../pages/user/Profile"));
+const ProductDetail = lazy(() => import("../pages/ProductDetail"));
 
 const MainRouter = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(syncUser());
+  }, []);
+
   return (
     <Routes>
       <Route

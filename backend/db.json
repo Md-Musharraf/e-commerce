@@ -7,21 +7,7 @@
       "password": "121212",
       "confirmPassword": "121212",
       "isAdmin": true,
-      "cart": [
-        {
-          "id": "1",
-          "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-          "price": 109.95,
-          "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-          "category": "men's clothing",
-          "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-          "rating": {
-            "rate": 3.9,
-            "count": 120
-          },
-          "quantity": 1
-        }
-      ]
+      "cart": []
     },
     {
       "id": "m99XsFGkJgfbs6O4GZfxE",
@@ -272,6 +258,30 @@
       "rating": {
         "rate": 3.6,
         "count": 145
+      }
+    },
+    {
+      "id": "G2q30nZ44iY7CGL9fmwsy",
+      "title": "Wrist watch",
+      "price": "250",
+      "description": "A wrist watch is a compact, portable timepiece designed to be worn around the wrist, typically secured by a strap or a metal band. Beyond its primary function of timekeeping, it serves as a significant fashion accessory, a status symbol, and in modern forms, a multifunctional digital tool.",
+      "category": "accessories",
+      "image": "https://w7.pngwing.com/pngs/25/277/png-transparent-apple-watch-series-2-apple-watch-series-3-apple-watch-series-1-smart-apple-watch-sports-watch-band-watch-accessory-sport-grey-thumbnail.png",
+      "rating": {
+        "rate": "4",
+        "count": "200"
+      }
+    },
+    {
+      "id": "ysWp-UQxTNJ1Y5veEC8PJ",
+      "title": "Premium quality lather jacket",
+      "price": "230",
+      "description": "jacket description\nA jacket is a short coat that typically extends to the waist or hips, featuring long sleeves and a front opening that fastens with zippers, buttons, or snaps. Unlike longer coats, jackets are generally lighter and designed for layering, protection from the elements, or as a fashion statement.",
+      "category": "clothing",
+      "image": "https://w7.pngwing.com/pngs/43/739/png-transparent-jacket-hoodie-overcoat-green-jackets-zipper-green-apple-green-tea-thumbnail.png",
+      "rating": {
+        "rate": "3",
+        "count": "100"
       }
     }
   ]

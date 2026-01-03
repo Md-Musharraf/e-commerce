@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 
+
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -10,6 +11,14 @@ const Profile = () => {
   const logoutHandler = () => {
     dispatch(logOutUser());
     navigate("/login");
+  };
+
+  const changePassword = () => {
+    navigate("")
+  };
+
+  const editProfile = () => {
+    console.log("clicked");
   };
 
   if (!user) {
@@ -54,11 +63,17 @@ const Profile = () => {
 
         {/* Actions */}
         <div className="flex flex-col gap-3">
-          <button className="w-full py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+          <button
+            onClick={editProfile}
+            className="w-full py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+          >
             Edit Profile
           </button>
 
-          <button className="w-full py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition">
+          <button
+            onClick={changePassword}
+            className="w-full py-2 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition"
+          >
             Change Password
           </button>
 

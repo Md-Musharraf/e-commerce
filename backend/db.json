@@ -17,6 +17,15 @@
       "confirmPassword": "121212",
       "isAdmin": false,
       "cart": []
+    },
+    {
+      "id": "NpLCoc5ZmHCH3XpJIZwUo",
+      "fullName": "hello",
+      "email": "hello@gmail.com",
+      "password": "121212",
+      "confirmPassword": "121212",
+      "isAdmin": false,
+      "cart": []
     }
   ],
   "products": [

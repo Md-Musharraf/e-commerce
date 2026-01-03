@@ -83,7 +83,6 @@ export const verifyUser = (loginUser, navigate) => async (dispatch, getState) =>
       navigate("/");
     } else {
       toast.info("please register");
-      navigate("/register");
     }
   } catch (error) {
     toast.error(error);
@@ -97,7 +96,8 @@ export const syncUser = () => (dispatch, getState) => {
 
 export const postUserBackend = (data, navigate) => async (dispatch, getState) => {
   const backendUser = await axios.get(`/user?email=${data.email}`);
-  if (backendUser) {
+
+  if (backendUser.data.length !== 0) {
     toast.info("already have an account please login");
     navigate("/login");
   } else {

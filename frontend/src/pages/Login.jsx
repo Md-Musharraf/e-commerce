@@ -17,6 +17,10 @@ const Login = () => {
     dispatch(verifyUser(data, navigate));
   };
 
+  const forgetPassword = () => {
+    navigate("/forget-password");
+  };
+
   return (
     // 1. Global Page Background
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -74,6 +78,7 @@ const Login = () => {
               </label>
               {/* Optional: Forgot Password Link */}
               <a
+                onClick={forgetPassword}
                 href="#"
                 className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
               >

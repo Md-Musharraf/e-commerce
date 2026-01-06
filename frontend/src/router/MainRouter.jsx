@@ -9,6 +9,7 @@ const Cart = lazy(() => import("./../pages/user/Cart"));
 const Create = lazy(() => import("../pages/admin/Create"));
 const Profile = lazy(() => import("./../pages/user/Profile"));
 const ProductDetail = lazy(() => import("../pages/ProductDetail"));
+const ForgetPassword = lazy(() => import("./../pages/user/ForgetPassword"));
 
 const MainRouter = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,10 @@ const MainRouter = () => {
       <Route
         path="/product.detail/:id"
         element={<ProductDetail />}
+      />
+      <Route
+        path="/forget-password"
+        element={<ForgetPassword />}
       />
     </Routes>
   );

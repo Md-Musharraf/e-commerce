@@ -2,6 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "../axios/api";
 import { toast } from "react-toastify";
 
+export const changePassword = (input) => async (dispatch, getState) => {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+
+  try {
+    const { data } = await axios.get(`/user?email=${currentUser.email}&password=${input.password}`);
+    if (data[0]) {
+      const user = await axios.patch(`/user/${currentUser.id}`, {
+        password: input.newPassword,
+        confirmPassword: input.confirmNewPassword,
+      });
+      localStorage.setItem("user", JSON.stringify(user.data));
+      dispatch(syncUser());
+      toast.success("Password Success 🕸️");
+    } else {
+      toast.warn("Enter right password");
+    }
+  } catch (error) {
+    toast.error(error);
+  }
+};
+
 export const addToCart = (product) => async (dispatch, getState) => {
   try {
     const loginUser = JSON.parse(localStorage.getItem("user"));

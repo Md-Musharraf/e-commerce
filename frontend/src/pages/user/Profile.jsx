@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../redux/userSlice";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
+import ChangePassword from "./ChangePassword";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [model, setModel] = useState(false);
   const user = useSelector((state) => state.user.value);
 
   const logoutHandler = () => {
@@ -14,8 +16,10 @@ const Profile = () => {
   };
 
   const changePassword = () => {
-    navigate("")
+    setModel(true);
   };
+
+  const closeModel = () => setModel(false);
 
   const editProfile = () => {
     console.log("clicked");
@@ -30,7 +34,9 @@ const Profile = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 relative">
+      <div>{model && <ChangePassword closeModel={closeModel} />}</div>
+
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-6 space-y-6">
         {/* Header */}
         <div className="text-center">
@@ -61,7 +67,6 @@ const Profile = () => {
           </div>
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col gap-3">
           <button
             onClick={editProfile}
